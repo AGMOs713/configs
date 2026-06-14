@@ -1,5 +1,20 @@
+if [[ -f  ~/.git-prompt.sh ]]; then
+    . ~/.git-prompt.sh
+fi
+
+black='\[\e[1;30m\]'
+red='\[\e[1;31m\]'
+green='\[\e[1;32m\]'
+yellow='\[\e[1;33m\]'
+blue='\[\e[1;34m\]'
+magenta='\[\e[1;35m\]'
+cyan='\[\e[1;36m\]'
+white='\[\e[1;37m\]'
+
+reset='\[\e[0m\]'
+
 # record last command exit status for use in PS1
-# capture last exit status FIRST
+# Capture last exit status FIRST
 __prompt_command() {
     local last_exit=$?
 
@@ -12,21 +27,20 @@ __prompt_command() {
     fi
 
     if (( last_exit == 0 )); then
-        codecol='\[\e[1;32m\]'
+        codecol=$green # '\[\e[1;32m\]'
     else
-        codecol='\[\e[1;31m\]'
+        codecol=$red # '\[\e[1;31m\]'
     fi
-
-    blue='\[\e[1;34m\]'
-    reset='\[\e[0m\]'
 
     folder="${PWD##*/}"
 
     suffix='$'
     (( EUID == 0 )) && suffix='#'
 
-    PS1="${codecol}${codefmt}${reset} ${blue}${folder}${reset}/-${suffix} "
+    git_part="$(__git_ps1 " ${magenta}(${yellow}%s${magenta})${reset}")"
+
+    PS1="${codecol}${codefmt}${reset} ${blue}${folder}/${reset}${git_part} ${suffix} "
 }
 
-# prepend handler so $? remains the retun value
+# PREPEND our handler so $? is still the real command status
 PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+;}${PROMPT_COMMAND}"
