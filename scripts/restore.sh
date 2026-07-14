@@ -31,7 +31,7 @@ if [ -f ~/.nanorc ] && [ -f ~/.nanorc.old ]; then
 fi
 
 if [ -d ~/.nano-syntax ] && [ -d ~/.nano-syntax.old ]; then
-    rm -r ./.nano-syntax
+    rm -r ~/.nano-syntax
     mv ~/.nano-syntax.old ~/.nano-syntax
 fi
 
