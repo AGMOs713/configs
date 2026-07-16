@@ -140,10 +140,15 @@ fi
 if command -v nano >/dev/null 2>&1; then
     export EDITOR="nano"
 else
+    echo "editor nano not found, using vi"
     export EDITOR="vi" # fallback
 fi
 
+
 if [[ $SHLVL -eq 1 ]]; then
     command -v fastfetch >/dev/null && fastfetch
-    printf "\n      \"I use Debian btw\"\n"
+    fi [ -f /etc/os-release ]; then
+        . /etc/os-release
+        printf "\n      \"I use %s btw\"\n" $ID
+    fi
 fi
