@@ -31,6 +31,7 @@ fi
 cp ./.nanorc ~/
 
 if [ -d ~/.nano-syntax ]; then
+    rm -rf ~/.nano-syntax.old
     mv ~/.nano-syntax ~/.nano-syntax.old
 fi
 cp -r ./.nano-syntax ~/
@@ -44,8 +45,4 @@ elif [ -d ~/.config/ghostty ]; then
 else
     mkdir -p ~/.config/ghostty
     cp ./.config/ghostty/config ~/.config/ghostty/
-fi
-
-if [ -d ~/.config/ghostty ]; then
-    cp ./.config/ghostty/config ~/.config
 fi
