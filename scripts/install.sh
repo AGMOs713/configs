@@ -38,5 +38,14 @@ cp -r ./.nano-syntax ~/
 
 if [ -f ~/.config/ghostty/config ]; then
     mv ~/.config/ghostty/config ~/.config/ghostty/config.old
+    cp ./.config/ghostty/config ~/.config/ghostty/
+elif [ -d ~/.config/ghostty ]; then
+    cp ./.config/ghostty/config ~/.config/ghostty/
+else
+    mkdir -p ~/.config/ghostty
+    cp ./.config/ghostty/config ~/.config/ghostty/
 fi
-cp ./.config/ghostty/config ~/
+
+if [ -d ~/.config/ghostty ]; then
+    cp ./.config/ghostty/config ~/.config
+fi
