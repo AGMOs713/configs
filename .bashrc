@@ -147,7 +147,7 @@ fi
 
 if [[ $SHLVL -eq 1 ]]; then
     command -v fastfetch >/dev/null && fastfetch
-    fi [ -f /etc/os-release ]; then
+    if [ -f /etc/os-release ]; then
         . /etc/os-release
         printf "\n      \"I use %s btw\"\n" $ID
     fi
