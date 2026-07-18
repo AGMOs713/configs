@@ -87,3 +87,6 @@ selection-foreground = #31363b
 theme = Breeze
 window-vsync = false
 working-directory = inherit
+gtk-titlebar = false
+window-theme = system
+gtk-wide-tabs = false
