@@ -20,6 +20,11 @@ if [ -f ~/.bashrc ]; then
 fi
 cp ./.bashrc ~/
 
+if [ -f ~/.emacs.el ]; then
+    mv ~/.emacs.el ~/.emacs.el.old
+fi
+cp ./.emacs.el ~/
+
 if [ -f ~/.git-prompt.sh ]; then
     mv ~/.git-prompt.sh ~/.git-prompt.sh.old
 fi
@@ -46,3 +51,9 @@ else
     mkdir -p ~/.config/ghostty
     cp ./.config/ghostty/config ~/.config/ghostty/
 fi
+
+if [ -d ~/.emacs.local ]; then
+    rm -rf ~/.emacs.local.old
+    mv ~/.emacs.local ~/.emacs.local.old
+fi
+cp -r ./.emacs.local ~/
