@@ -17,6 +17,8 @@ alias egrep='egrep --color=auto'
 
 alias _plasma="dbus-run-session startplasma-wayland"
 alias _xfce="dbus-run-session startxfce4"
+alias apt-syu="time { sudo apt update && apt list --upgradable && sudo apt upgrade -y && sudo apt autoremove -y; }"
+alias xbps-syu="time { sudo xbps-install -Syu && sudo xbps-remove -yo; }"
 alias bat="batcat"
 alias boo="ghostty +boo"
 alias btop="btop --debug"
@@ -26,7 +28,6 @@ alias hexedit="hexedit --linelength 16"
 alias pls="sudo"
 alias py="python3"
 alias qemu="qemu-system-i386"
-alias syu="time { sudo apt update && apt list --upgradable && sudo apt upgrade -y && sudo apt autoremove -y; }"
 alias treee="time sudo tree -alf /"
 alias y="yazi"
 
