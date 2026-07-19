@@ -20,6 +20,11 @@ if [ -f ~/.bashrc ]; then
 fi
 cp ./.bashrc ~/
 
+if [ -f ~/.custom-file.el ]; then
+    mv ~/.custom-file.el ~/.custom-file.el.old
+fi
+cp ./.custom-file.el ~/
+
 if [ -f ~/.emacs.el ]; then
     mv ~/.emacs.el ~/.emacs.el.old
 fi
