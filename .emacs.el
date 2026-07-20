@@ -1,5 +1,5 @@
 ;; prevent emacs from writing shit here (
-(setq custom-file "~/.custom-file.el")
+(setq custom-file "~/.emacs-custom-file.el")
 ;; )
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
