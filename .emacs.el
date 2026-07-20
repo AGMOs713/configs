@@ -2,7 +2,6 @@
 (setq custom-file "~/.custom-file.el")
 ;; )
 
-;; stuff that shoud run asap on startup (
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -13,7 +12,6 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (size-indication-mode 1)
-;; )
 
 (require 'package)
 (add-to-list 'package-archives
@@ -33,6 +31,7 @@
 
 ;; custom functions (
 ;; agm-duplicate-line (
+
 ;; duplicate-line version that moves the cursor to the
 ;;   correct position on the new line.
 (defun agm-duplicate-line()
@@ -48,6 +47,7 @@
     (forward-char column)))
 (global-set-key (kbd "C-,") 'agm-duplicate-line)
 ;; ) // agm-duplicate-line
+
 ;; ) // custom functions
 
 ;; theme and font (
@@ -55,3 +55,5 @@
 (load-theme 'vscode-dark-plus t)
 ;(add-to-list 'default-frame-alist `(font . "Iosevka-20"))
 ;; )
+
+(setq initial-buffer-choice "~/")
