@@ -20,9 +20,9 @@ if [ -f ~/.bashrc.old ]; then
     mv ~/.bashrc.old ~/.bashrc
 fi
 
-if [ -f ~/.custom-file.el.old ]; then
-    rm -f ~/.custom-file.el
-    mv ~/.custom-file.el.old ~/.custom-file.el
+if [ -f ~/.emacs-custom-file.el.old ]; then
+    rm -f ~/.emacs-custom-file.el
+    mv ~/.emacs-custom-file.el.old ~/.emacs-custom-file.el
 fi
 
 if [ -f ~/.emacs.el.old ]; then
