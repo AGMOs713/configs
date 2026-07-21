@@ -16,8 +16,10 @@
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
-(load-file custom-file)
+;(load-file custom-file)
+(load custom-file 'noerror)
 
 (add-to-list 'load-path "~/.emacs.local/")
 
@@ -38,7 +40,7 @@
 
 ;; duplicate-line version that moves the cursor to the
 ;;   correct position on the new line.
-(defun agm-duplicate-line()
+(defun agm-duplicate-line ()
   "Duplicate current line"
   (interactive)
   (let ((column (- (point) (point-at-bol)))
@@ -57,7 +59,11 @@
 ;; theme and font (
 (add-to-list 'custom-theme-load-path "~/.emacs.local/themes/")
 (load-theme 'vscode-dark-plus t)
-;(add-to-list 'default-frame-alist `(font . "Iosevka-20"))
+
+(set-face-attribute 'default nil
+                    :family "Iosevka"
+                    :height 100
+                    :weight 'regular)
 ;; )
 
 (setq initial-buffer-choice "~/")
