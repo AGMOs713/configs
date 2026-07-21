@@ -15,11 +15,36 @@ alias egrep='egrep --color=auto'
 
 # custom user-set alias list {
 
-alias _plasma="dbus-run-session startplasma-wayland"
-alias _xfce="dbus-run-session startxfce4"
-alias apt-syu="time { sudo apt update && apt list --upgradable && sudo apt upgrade -y && sudo apt autoremove -y; }"
-alias xbps-syu="time { sudo xbps-install -Syu && sudo xbps-remove -yo; }"
-alias bat="batcat"
+# use the proper alias for the installed desktop environment
+if command -v dbus-run-session >/dev/null 2>&1; then
+
+    if command -v startplasma-x11 >/dev/null 2>&1; then
+	alias _plasma="dbus-run-session startplasma-x11"
+    fi
+    
+    if command -v startplasma-wayland >/dev/null 2>&1; then
+	alias _plasma="dbus-run-session startplasma-wayland"
+    fi
+    
+    if command -v startxfce4 >/dev/null 2>&1; then
+	alias _xfce="dbus-run-session startxfce4"
+    fi
+    	
+fi
+
+# use the proper alias for the package manager
+if command -v apt >/dev/null 2>&1; then
+    alias syu="time { sudo apt update && apt list --upgradable && sudo apt upgrade -y && sudo apt autoremove -y; }"
+elif command -v xbps-install >/dev/null 2>&1; then
+    alias syu="time { sudo xbps-install -Syu && sudo xbps-remove -yo; }"
+else
+    :
+fi
+
+if command -v batcat >/dev/null 2>&1; then
+    alias bat="batcat"
+fi
+
 alias boo="ghostty +boo"
 alias btop="btop --debug"
 alias cmatrix="time cmatrix -abu 1"
