@@ -59,6 +59,7 @@ copy-on-select = false
 cursor-color = #eff0f1
 cursor-style = block
 cursor-text = #31363b
+font-family = "Iosevka"
 font-size = 10
 foreground = #eff0f1
 image-storage-limit = 536870912
