@@ -19,17 +19,17 @@ alias egrep='egrep --color=auto'
 if command -v dbus-run-session >/dev/null 2>&1; then
 
     if command -v startplasma-x11 >/dev/null 2>&1; then
-	alias _plasma="dbus-run-session startplasma-x11"
+	alias _plasma="exec dbus-run-session startplasma-x11"
     fi
-    
+
     if command -v startplasma-wayland >/dev/null 2>&1; then
-	alias _plasma="dbus-run-session startplasma-wayland"
+	alias _plasma="exec dbus-run-session startplasma-wayland"
     fi
-    
+
     if command -v startxfce4 >/dev/null 2>&1; then
-	alias _xfce="dbus-run-session startxfce4"
+	alias _xfce="exec dbus-run-session startxfce4"
     fi
-    	
+
 fi
 
 # use the proper alias for the package manager
