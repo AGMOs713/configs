@@ -137,6 +137,7 @@ fi
 #export LESS_TERMCAP_ZW=$'\e[75m'
 #export MANPAGER='less'
 
+# locate and set default editor
 if command -v nano >/dev/null 2>&1; then
     export EDITOR="nano"
 else
@@ -144,9 +145,44 @@ else
     export EDITOR="vi" # fallback
 fi
 
+# locate and set default C and C++ compiler toolchain
+if command -v gcc >/dev/null 2>&1; then
+    export CC="gcc"
+elif command -v clang >/dev/null 2>&1; then
+    export CC="clang"
+elif command -v zig >/dev/null 2>&1; then
+    export CC="zig cc"
+    export CXX="zig c++"
+else
+    export CC="cc"
+    printf "No C compiler found, defaulting to CC=\"cc\".\n"
+fi
+
+if command -v g++ >/dev/null 2>&1; then
+    export CXX="g++"
+elif command -v clang++ >/dev/null 2>&1; then
+    export CXX="clang++"
+# already checked as a C compiler
+#if command -v zig >/dev/null 2>&1; then
+#    export CXX="zig c++"
+else
+    export CXX="c++"
+    printf "No C++ compiler found, defaulting to CXX=\"c++\".\n"
+fi
+
+export AS="as"
+export LD="ld"
+
+# set (or append) default flags for C and C++ compilation
+export CFLAGS="-Wall -Wextra -Werror -Wpedantic $CFLAGS"
+export CXXFLAGS="$CFLAGS $CXXFLAGS"
 
 if [[ $SHLVL -le 2 ]]; then
-    command -v fastfetch >/dev/null && fastfetch
+    if command -v fastfetch >/dev/null 2>&1; then
+        fastfetch
+    elif command -v neofetch >/dev/null 2>&1; then
+        neofetch
+    fi
     if [ -f /etc/os-release ]; then
         . /etc/os-release
         printf "\n      \"I use %s btw\"\n" $ID
