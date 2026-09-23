@@ -163,7 +163,7 @@ if command -v g++ >/dev/null 2>&1; then
 elif command -v clang++ >/dev/null 2>&1; then
     export CXX="clang++"
 # already checked as a C compiler
-#if command -v zig >/dev/null 2>&1; then
+#elif command -v zig >/dev/null 2>&1; then
 #    export CXX="zig c++"
 else
     export CXX="c++"
