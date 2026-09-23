@@ -170,8 +170,15 @@ else
     printf "No C++ compiler found, defaulting to CXX=\"c++\".\n"
 fi
 
+# use gnu assembler by default
 export AS="as"
-export LD="ld"
+
+# prefer lld, fallback to ld
+if command -v ld.lld >/dev/null 2>&1; then
+    export LD="ld.lld"
+else
+    export LD="ld"
+fi
 
 # set (or append) default flags for C and C++ compilation
 export CFLAGS="-Wall -Wextra -Werror -Wpedantic $CFLAGS"
