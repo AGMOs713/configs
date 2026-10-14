@@ -43,7 +43,7 @@ __prompt_command() {
 
     git_part="$(__git_ps1 " ${magenta}(${yellow}%s${magenta})${reset}")"
 
-    PS1="${codecol}${codefmt}${reset} ${blue}${folder}/${reset}${git_part} ${suffix} "
+    PS1="${codecol}${codefmt}${reset} ${blue}${folder}${reset}${git_part} ${suffix} "
 }
 
 # PREPEND our handler so $? is still the real command status
