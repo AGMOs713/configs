@@ -146,10 +146,10 @@ else
 fi
 
 # locate and set default C and C++ compiler toolchain
-if command -v gcc >/dev/null 2>&1; then
-    export CC="gcc"
-elif command -v clang >/dev/null 2>&1; then
+if command -v clang >/dev/null 2>&1; then
     export CC="clang"
+elif command -v gcc >/dev/null 2>&1; then
+    export CC="gcc"
 elif command -v zig >/dev/null 2>&1; then
     export CC="zig cc"
     export CXX="zig c++"
@@ -158,10 +158,10 @@ else
     printf "No C compiler found, defaulting to CC=\"cc\".\n"
 fi
 
-if command -v g++ >/dev/null 2>&1; then
-    export CXX="g++"
-elif command -v clang++ >/dev/null 2>&1; then
+if command -v clang++ >/dev/null 2>&1; then
     export CXX="clang++"
+elif command -v g++ >/dev/null 2>&1; then
+    export CXX="g++"
 # already checked as a C compiler
 #elif command -v zig >/dev/null 2>&1; then
 #    export CXX="zig c++"
