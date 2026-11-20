@@ -70,7 +70,7 @@
 
 (set-face-attribute 'default nil
                     :family "Iosevka"
-                    :height 100
+                    :height 120
                     :weight 'regular)
 ;; )
 
