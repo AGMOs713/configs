@@ -63,7 +63,10 @@
 
 ;; theme and font (
 (add-to-list 'custom-theme-load-path "~/.emacs.local/themes/")
-(load-theme 'vscode-dark-plus t)
+
+;;(load-theme 'vscode-dark-plus t)
+
+(load-theme 'gruber-darker t)
 
 (set-face-attribute 'default nil
                     :family "Iosevka"
