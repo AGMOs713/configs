@@ -35,6 +35,8 @@
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
+(require 'odin-mode)
+
 (setq split-height-threshold 0
       split-width-threshold nil)
 
